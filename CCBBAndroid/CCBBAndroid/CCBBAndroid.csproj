@@ -126,7 +126,7 @@
     <AndroidResource Include="Resources\drawable\imgchao.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\in.png" />
+    <AndroidResource Include="Resources\drawable\In.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\jn.png" />
@@ -203,6 +203,32 @@
     <AndroidAsset Include="Assets\musicas\mccbb2.3gp" />
     <AndroidAsset Include="Assets\musicas\mccbb3.3gp" />
     <AndroidAsset Include="Assets\musicas\mccbb4.3gp" />
+    <AndroidAsset Include="Assets\audio\A.mp3" />
+    <AndroidAsset Include="Assets\audio\B.mp3" />
+    <AndroidAsset Include="Assets\audio\C.mp3" />
+    <AndroidAsset Include="Assets\audio\D.mp3" />
+    <AndroidAsset Include="Assets\audio\E.mp3" />
+    <AndroidAsset Include="Assets\audio\F.mp3" />
+    <AndroidAsset Include="Assets\audio\G.mp3" />
+    <AndroidAsset Include="Assets\audio\H.mp3" />
+    <AndroidAsset Include="Assets\audio\I.mp3" />
+    <AndroidAsset Include="Assets\audio\J.mp3" />
+    <AndroidAsset Include="Assets\audio\K.mp3" />
+    <AndroidAsset Include="Assets\audio\L.mp3" />
+    <AndroidAsset Include="Assets\audio\M.mp3" />
+    <AndroidAsset Include="Assets\audio\N.mp3" />
+    <AndroidAsset Include="Assets\audio\O.mp3" />
+    <AndroidAsset Include="Assets\audio\P.mp3" />
+    <AndroidAsset Include="Assets\audio\Q.mp3" />
+    <AndroidAsset Include="Assets\audio\R.mp3" />
+    <AndroidAsset Include="Assets\audio\S.mp3" />
+    <AndroidAsset Include="Assets\audio\T.mp3" />
+    <AndroidAsset Include="Assets\audio\U.mp3" />
+    <AndroidAsset Include="Assets\audio\V.mp3" />
+    <AndroidAsset Include="Assets\audio\W.mp3" />
+    <AndroidAsset Include="Assets\audio\X.mp3" />
+    <AndroidAsset Include="Assets\audio\Y.mp3" />
+    <AndroidAsset Include="Assets\audio\Z.mp3" />
     <Content Include="pngs_editaveis\A-Z.fw.png" />
     <Content Include="pngs_editaveis\Animacao.fw.png" />
     <Content Include="pngs_editaveis\BtnBoomBoom.fw.png" />
@@ -220,6 +246,14 @@
     <Content Include="pngs_editaveis\spinner_videos_mdpi.fw.png" />
     <Content Include="pngs_editaveis\spinner_videos_xhdpi.fw.png" />
     <Content Include="pngs_editaveis\spinner_videos_xxhdpi.fw.png" />
+    <AndroidResource Include="Resources\drawable\coco_fechar_video.png" />
+    <AndroidResource Include="Resources\drawable\coco_play.png" />
+    <AndroidResource Include="Resources\drawable\coco_play_video.png" />
+    <AndroidResource Include="Resources\drawable\coco_stop.png" />
+    <AndroidResource Include="Resources\drawable\cocoplay.xml" />
+    <AndroidResource Include="Resources\drawable\cocostop.xml" />
+    <AndroidResource Include="Resources\drawable\cocofecharvideo.xml" />
+    <AndroidResource Include="Resources\drawable\cocoplayvideo.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

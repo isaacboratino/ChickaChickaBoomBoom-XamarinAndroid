@@ -79,5 +79,13 @@ F:\Projetos\GitHub\Xamarin\ChickaChickaBoomBoom-XamarinAndroid\CCBBAndroid\CCBBA
 F:\Projetos\GitHub\Xamarin\ChickaChickaBoomBoom-XamarinAndroid\CCBBAndroid\CCBBAndroid\obj\Debug\android\assets\System.ServiceModel.Internals.dll.mdb
 F:\Projetos\GitHub\Xamarin\ChickaChickaBoomBoom-XamarinAndroid\CCBBAndroid\CCBBAndroid\obj\Debug\android\assets\System.Xml.dll.mdb
 F:\Projetos\GitHub\Xamarin\ChickaChickaBoomBoom-XamarinAndroid\CCBBAndroid\CCBBAndroid\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
+F:\Projetos\GitHub\Xamarin\ChickaChickaBoomBoom-XamarinAndroid\CCBBAndroid\CCBBAndroid\obj\Debug\res\drawable\coco_fechar_video.png
+F:\Projetos\GitHub\Xamarin\ChickaChickaBoomBoom-XamarinAndroid\CCBBAndroid\CCBBAndroid\obj\Debug\res\drawable\coco_play.png
+F:\Projetos\GitHub\Xamarin\ChickaChickaBoomBoom-XamarinAndroid\CCBBAndroid\CCBBAndroid\obj\Debug\res\drawable\coco_play_video.png
+F:\Projetos\GitHub\Xamarin\ChickaChickaBoomBoom-XamarinAndroid\CCBBAndroid\CCBBAndroid\obj\Debug\res\drawable\coco_stop.png
+F:\Projetos\GitHub\Xamarin\ChickaChickaBoomBoom-XamarinAndroid\CCBBAndroid\CCBBAndroid\obj\Debug\res\drawable\cocoplay.xml
+F:\Projetos\GitHub\Xamarin\ChickaChickaBoomBoom-XamarinAndroid\CCBBAndroid\CCBBAndroid\obj\Debug\res\drawable\cocostop.xml
+F:\Projetos\GitHub\Xamarin\ChickaChickaBoomBoom-XamarinAndroid\CCBBAndroid\CCBBAndroid\obj\Debug\res\drawable\cocofecharvideo.xml
+F:\Projetos\GitHub\Xamarin\ChickaChickaBoomBoom-XamarinAndroid\CCBBAndroid\CCBBAndroid\obj\Debug\res\drawable\cocoplayvideo.xml
 F:\Projetos\GitHub\Xamarin\ChickaChickaBoomBoom-XamarinAndroid\CCBBAndroid\CCBBAndroid\obj\Debug\CCBBAndroid.dll.mdb
 F:\Projetos\GitHub\Xamarin\ChickaChickaBoomBoom-XamarinAndroid\CCBBAndroid\CCBBAndroid\bin\Debug\CCBBAndroid.dll.mdb

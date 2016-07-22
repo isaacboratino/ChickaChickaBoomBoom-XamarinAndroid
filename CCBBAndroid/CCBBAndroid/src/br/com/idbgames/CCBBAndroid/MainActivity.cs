@@ -8,6 +8,7 @@ using Android.Util;
 using static Android.Views.View;
 using System.Threading;
 using CCBBAndroid;
+using Android.Media;
 
 namespace br.com.idbgames.CCBBAndroid
 {
@@ -80,7 +81,7 @@ namespace br.com.idbgames.CCBBAndroid
                 // Array com todas as letras que serao arrastaveis na tela
                 int[] lettersImgArr = { Resource.Drawable.an,Resource.Drawable.bn,Resource.Drawable.cn,
                                         Resource.Drawable.dn,Resource.Drawable.en,Resource.Drawable.fn,
-                                        Resource.Drawable.gn,Resource.Drawable.hn,Resource.Drawable.fn,
+                                        Resource.Drawable.gn,Resource.Drawable.hn,Resource.Drawable.In,
                                         Resource.Drawable.jn,Resource.Drawable.kn,Resource.Drawable.ln,
                                         Resource.Drawable.mn,Resource.Drawable.nn,
                                         Resource.Drawable.on,Resource.Drawable.pn,Resource.Drawable.qn,
@@ -103,6 +104,16 @@ namespace br.com.idbgames.CCBBAndroid
                 playMusicVids = new PlayMusicVids(main);
                 //PlayMusica("mccbb1");
 
+                // Carrega sons de cada letra
+                string[] nameSoundsArray = new string[26];
+                int letterIterator = 0;
+                for (int i = 65; i <= 90; i++)
+                {
+                    string letter = Convert.ToChar(i).ToString();
+                    nameSoundsArray[letterIterator++] = letter;
+                }                
+                playMusicVids.LoadSounds(nameSoundsArray, "audio", "mp3");                
+
                 // Seta o evento de seleção
                 mySpinner.ItemSelected += (sender, args) =>
                 {
@@ -112,8 +123,8 @@ namespace br.com.idbgames.CCBBAndroid
                         videoMusicaSelecionada = args.Position + 1;
                         PlayMusica("mccbb" + videoMusicaSelecionada);
                     }
-                };
-            });	
+                };                
+            });
 
             Button playMusicaButton = FindViewById<Button>(Resource.Id.playMusicaButton);
             playMusicaButton.Click += btPlayMusica_onClick;
@@ -122,7 +133,7 @@ namespace br.com.idbgames.CCBBAndroid
             playVideoButton.Click += btPlayVideo_onClick;
 
             Button chickaChickaButton = FindViewById<Button>(Resource.Id.chickaChickaButton);
-            chickaChickaButton.Click += chickaBoomButton_onClick;
+            chickaChickaButton.Click += chickaBoomButton_onClick;            
         }
 
         private void GenerateLettersTouch(RelativeLayout rl, int[] lettersImgArr)
@@ -134,6 +145,7 @@ namespace br.com.idbgames.CCBBAndroid
                 ImageView imgView = new ImageView(this);
                 imgView.Id = (12 + i);
                 imgView.SetImageResource(lettersImgArr[i]); // seta a imagem na imageview
+                imgView.Tag = Convert.ToChar(65 + i).ToString();
 
                 RelativeLayout.LayoutParams parms = new RelativeLayout.LayoutParams(letterWidth, letterHeight);
                 imgView.LayoutParameters = parms;
@@ -153,7 +165,6 @@ namespace br.com.idbgames.CCBBAndroid
                 // adiciono lettra no array, para depois poder dar respaw ou boom boom
                 lettersTelaArr[i] = imgView.Id;
             }
-
         }
 
         private void PosicionaLetraTela(ImageView imgView)
@@ -178,28 +189,27 @@ namespace br.com.idbgames.CCBBAndroid
 
             //imgView.SetX(finalX);
             //imgView.SetY(finalY);
-
         }
 
         float x, y = 0.0f;
         bool moving = false;
 
-        public bool OnTouch(View v, MotionEvent e)
+        public bool OnTouch(View view, MotionEvent e)
         {
-
             switch (e.Action)
             {
 			    case MotionEventActions.Down:
 				    moving = true;
-                break;
+                    playMusicVids.playBeep(view.Tag.ToString(), false);
+                    break;
 				
 			    case MotionEventActions.Move:
 				    if (moving)
                     {
-                        x = e.RawX-v.Width/2;
-                        y = (e.RawY-v.Height*3/2);
-                        v.SetX(x);
-                        v.SetY(y);
+                        x = e.RawX- view.Width/2;
+                        y = (e.RawY- view.Height*3/2);
+                        view.SetX(x);
+                        view.SetY(y);
                     }
 				    break;
 				
@@ -221,24 +231,27 @@ namespace br.com.idbgames.CCBBAndroid
             Button btMusicaPlay = FindViewById<Button>(Resource.Id.playMusicaButton);
             Button btVideoPlay = FindViewById<Button>(Resource.Id.playVideoButton);
 
-            if (btMusicaPlay.Text.Equals("Play"))
+            if (btMusicaPlay.Tag.Equals("Play"))
             {
                 playMusicVids.stopAll();
 
                 // Roda o video
                 playMusicVids.playMusic("musicas", nomeMusica, "3gp");
 
-                //troca o botão do player do video, para ser o stop do video			
-                btMusicaPlay.Text = "Stop";
+                //troca o botão do player do video, para ser o stop do video
+                btMusicaPlay.SetBackgroundResource(Resource.Drawable.cocostop);
+                btMusicaPlay.Tag = "Stop";
                 btMusicaPlay.BringToFront();
 
                 // seta o botão do video para play
-                btVideoPlay.Text = "Video";
+                btVideoPlay.SetBackgroundResource(Resource.Drawable.cocoplayvideo);
+                btVideoPlay.Tag = "Video";
             }
             else
             {
                 playMusicVids.stopAll();
-                btMusicaPlay.Text = "Play";
+                btMusicaPlay.SetBackgroundResource(Resource.Drawable.cocoplay);
+                btMusicaPlay.Tag = "Play";
             }
         }
 
@@ -248,7 +261,7 @@ namespace br.com.idbgames.CCBBAndroid
             Button btVideoPlay = (Button)FindViewById(Resource.Id.playVideoButton);
             Button btMusicaPlay = (Button)FindViewById(Resource.Id.playMusicaButton);
 
-            if (btVideoPlay.Text.Equals("Video"))
+            if (btVideoPlay.Tag.Equals("Video"))
             {
                 int idVideoSelecionado = 0;
                 switch (videoMusicaSelecionada)
@@ -266,16 +279,23 @@ namespace br.com.idbgames.CCBBAndroid
                                         idVideoSelecionado,
                                         Resource.Id.videoPlayer);
 
-                //troca o botão do player do video, para ser o stop do video			
-                btVideoPlay.Text = "Fechar";
-                btMusicaPlay.Text = "Play";
+                //troca o botão do player do video, para ser o stop do video
+                btVideoPlay.SetBackgroundResource(Resource.Drawable.cocofecharvideo);
+                btMusicaPlay.SetBackgroundResource(Resource.Drawable.cocoplay);
+                
+                btVideoPlay.Tag = "Fechar";
+                btMusicaPlay.Tag = "Play";
                 btVideoPlay.BringToFront();
             }
             else
             {
                 playMusicVids.stopAll();
-                btVideoPlay.Text = "Video";
-                btMusicaPlay.Text = "Play";
+
+                btVideoPlay.SetBackgroundResource(Resource.Drawable.cocoplayvideo);
+                btMusicaPlay.SetBackgroundResource(Resource.Drawable.cocoplay);
+
+                btVideoPlay.Tag = "Video";
+                btMusicaPlay.Tag = "Play";
             }
         }
 
@@ -286,8 +306,12 @@ namespace br.com.idbgames.CCBBAndroid
             Button btMusicaPlay = (Button)FindViewById(Resource.Id.playMusicaButton);
 
             playMusicVids.stopAll();
-            btVideoPlay.Text = "Video";
-            btMusicaPlay.Text = "Play";
+
+            btVideoPlay.SetBackgroundResource(Resource.Drawable.cocoplayvideo);
+            btMusicaPlay.SetBackgroundResource(Resource.Drawable.cocoplay);
+
+            btVideoPlay.Tag = "Video";
+            btMusicaPlay.Tag = "Play";
 
             playMusicVids.playMusic("musicas", "boom", "3gp");
 
@@ -296,11 +320,6 @@ namespace br.com.idbgames.CCBBAndroid
                 Thread.Sleep(7000);
                 ReposicionaLetras();
             });
-
-                    
-
-            // Reposiciona as letras em seus lugares
-            //SetTimeout(7000);
         }
 
 

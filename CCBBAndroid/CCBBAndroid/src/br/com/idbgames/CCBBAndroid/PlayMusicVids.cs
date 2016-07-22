@@ -30,10 +30,8 @@ namespace br.com.idbgames.CCBBAndroid
 
         public void LoadSounds(string[] nameSoundsArray, string directory, string type)
         {
-
             try
             {
-
                 aMap.Clear();
 
                 sound = null;
@@ -64,10 +62,8 @@ namespace br.com.idbgames.CCBBAndroid
 
         public void playMusic(string soundNameWithDirectoryAndType)
         {
-
             try
             {
-
                 this.stopAll();
 
                 //string file = "sounds/gp/" + soundName + ".3gp";
@@ -88,20 +84,25 @@ namespace br.com.idbgames.CCBBAndroid
 
         public void playBeep(string soundName)
         {
+            playBeep(soundName, true);
+        }
 
+        public void playBeep(string soundName, bool stopAll)
+        {
             try
             {
-
-                this.stopAll();
+                if (stopAll)
+                    this.stopAll();
 
                 if (player != null)
                     if (player.IsPlaying)
-                        player.Stop();
+                        if (stopAll)
+                            player.Stop();
 
                 if (sound == null)
                     sound = new SoundPool(1, Stream.Music, 0);
 
-                sound.Play(aMap[soundName], 1f, 1f, 0, 0, 1f);
+                sound.Play(aMap[soundName], 0.5f, 0.5f, 0, 0, 1f);
 
             }
             catch (Exception e)
