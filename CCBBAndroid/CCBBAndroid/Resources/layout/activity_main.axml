@@ -41,40 +41,59 @@
         android:layout_marginTop="20dp"
         android:scaleType="fitXY"
         android:src="@drawable/coqueiro_cocos" />
+    <ImageView
+        android:id="@+id/boom01"
+        android:layout_height="80dp"
+        android:src="@drawable/boom1"
+        android:layout_width="100dp"
+        android:layout_alignTop="@id/coqueiro"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        tools:visibility="gone" />
+    <ImageView
+        android:id="@+id/boom02"
+        android:layout_height="80dp"
+        android:src="@drawable/boom2"
+        android:layout_width="100dp"
+        android:layout_alignBottom="@id/coqueiro"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="80dp"
+        tools:visibility="gone" />
     <Button
         android:id="@+id/chickaChickaButton"
         android:layout_width="60dp"
         android:layout_height="40dp"
         android:layout_alignParentTop="true"
-        android:background="@drawable/btnboom"
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp" />
+        android:layout_marginTop="5dp"
+        android:background="@layout/btnboom" />
     <Button
-        android:id="@+id/playMusicaButton"
-        android:layout_width="60dp"
+        android:id="@+id/playVideoButton"
+        android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="5dp"
-        android:tag="Play"
-        android:background="@drawable/cocoplay"
-        android:layout_toLeftOf="@+id/chickaChickaButton"/>
+        android:tag="Video"
+        android:background="@layout/cocoplayvideo" />
     <Button
-        android:id="@+id/playVideoButton"
-        android:layout_width="60dp"
+        android:id="@+id/playMusicaButton"
+        android:layout_width="40dp"
         android:layout_height="40dp"
+        android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="5dp"
-        android:tag="Video"
-        android:background="@drawable/cocoplayvideo"
-        android:layout_toLeftOf="@+id/playMusicaButton"/>
+        android:layout_marginRight="43dp"
+        android:tag="Play"
+        android:background="@layout/cocoplay" />
     <Spinner
         android:id="@+id/videoMusicaSpinner"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignBottom="@+id/playVideoButton"
-        android:layout_toLeftOf="@+id/playVideoButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
         android:layout_marginTop="5dp"
+        android:layout_marginRight="86dp"
+        android:background="@layout/cocovideos"
         android:padding="0dp" />
     <VideoView
         android:id="@+id/videoPlayer"

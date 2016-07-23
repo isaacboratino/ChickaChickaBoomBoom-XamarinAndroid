@@ -57,7 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\activity_main.axml" />
-    <AndroidResource Include="Resources\layout\row.axml" />
+    <AndroidResource Include="Resources\layout\row.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
@@ -67,7 +67,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="key_google\key_chickaboom" />
-    <None Include="Properties\AndroidManifest.xml" />
+    <None Include="Properties\AndroidManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\a.png" />
@@ -79,7 +81,7 @@
     <AndroidResource Include="Resources\drawable\bn.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\btnboom.xml" />
+    <AndroidResource Include="Resources\layout\btnboom.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\btnboomboom.png" />
@@ -251,11 +253,23 @@
     <AndroidResource Include="Resources\drawable\coco_play.png" />
     <AndroidResource Include="Resources\drawable\coco_play_video.png" />
     <AndroidResource Include="Resources\drawable\coco_stop.png" />
-    <AndroidResource Include="Resources\drawable\cocoplay.xml" />
-    <AndroidResource Include="Resources\drawable\cocostop.xml" />
-    <AndroidResource Include="Resources\drawable\cocofecharvideo.xml" />
-    <AndroidResource Include="Resources\drawable\cocoplayvideo.xml" />
+    <AndroidResource Include="Resources\layout\cocoplay.xml" />
+    <AndroidResource Include="Resources\layout\cocostop.xml" />
+    <AndroidResource Include="Resources\layout\cocofecharvideo.xml" />
+    <AndroidResource Include="Resources\layout\cocoplayvideo.xml" />
+    <AndroidResource Include="Resources\drawable\btnboomboom_press.png" />
+    <AndroidResource Include="Resources\drawable\coco_stop_press.png" />
+    <AndroidResource Include="Resources\drawable\coco_fechar_video_press.png" />
+    <AndroidResource Include="Resources\drawable\coco_play_press.png" />
+    <AndroidResource Include="Resources\drawable\coco_play_video_press.png" />
+    <AndroidResource Include="Resources\layout\anim_scale_boom.xml" />
+    <AndroidResource Include="Resources\drawable\coco_videos.png" />
+    <AndroidResource Include="Resources\layout\cocovideos.xml" />
+    <AndroidResource Include="Resources\layout\anim_treme_coqueiro.xml" />
+    <AndroidResource Include="Resources\drawable\boom2.png" />
+    <AndroidResource Include="Resources\drawable\boom1.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
      Other similar extension points exist, see Microsoft.Common.targets.

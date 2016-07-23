@@ -8,9 +8,9 @@ using Android.Util;
 using static Android.Views.View;
 using System.Threading;
 using CCBBAndroid;
-using Android.Media;
+using Android.Views.Animations;
 
-namespace br.com.idbgames.CCBBAndroid
+namespace br.com.idbgames.chickachickaboomboomone
 {
     [Activity(Label = "Chicka Chicka Boom Boom", MainLauncher = true, Icon = "@drawable/ic_launcher")]
     public class MainActivity : Activity, IOnTouchListener
@@ -35,6 +35,9 @@ namespace br.com.idbgames.CCBBAndroid
 
         protected PlayMusicVids playMusicVids;
 
+        protected Animation animScaleBoom;
+        protected Animation animTremCoqueiro;
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -45,6 +48,9 @@ namespace br.com.idbgames.CCBBAndroid
             main = this;
 
             layoutPrincipal = FindViewById<RelativeLayout>(Resource.Id.layoutPrincipal);
+
+            animScaleBoom = AnimationUtils.LoadAnimation(this, Resource.Layout.anim_scale_boom);
+            animTremCoqueiro = AnimationUtils.LoadAnimation(this, Resource.Layout.anim_treme_coqueiro);
 
             // Fiz isso para pegar o tamanho real da tela
             layoutPrincipal.Post(() =>
@@ -127,7 +133,7 @@ namespace br.com.idbgames.CCBBAndroid
             });
 
             Button playMusicaButton = FindViewById<Button>(Resource.Id.playMusicaButton);
-            playMusicaButton.Click += btPlayMusica_onClick;
+            playMusicaButton.Click += btPlayMusica_onClick;            
 
             Button playVideoButton = FindViewById<Button>(Resource.Id.playVideoButton);
             playVideoButton.Click += btPlayVideo_onClick;
@@ -239,18 +245,18 @@ namespace br.com.idbgames.CCBBAndroid
                 playMusicVids.playMusic("musicas", nomeMusica, "3gp");
 
                 //troca o botão do player do video, para ser o stop do video
-                btMusicaPlay.SetBackgroundResource(Resource.Drawable.cocostop);
+                btMusicaPlay.SetBackgroundResource(Resource.Layout.cocostop);
                 btMusicaPlay.Tag = "Stop";
                 btMusicaPlay.BringToFront();
 
                 // seta o botão do video para play
-                btVideoPlay.SetBackgroundResource(Resource.Drawable.cocoplayvideo);
+                btVideoPlay.SetBackgroundResource(Resource.Layout.cocoplayvideo);
                 btVideoPlay.Tag = "Video";
             }
             else
             {
                 playMusicVids.stopAll();
-                btMusicaPlay.SetBackgroundResource(Resource.Drawable.cocoplay);
+                btMusicaPlay.SetBackgroundResource(Resource.Layout.cocoplay);
                 btMusicaPlay.Tag = "Play";
             }
         }
@@ -275,13 +281,13 @@ namespace br.com.idbgames.CCBBAndroid
                 playMusicVids.stopAll();
 
                 // Roda o video
-                playMusicVids.playVideo(string.Format("android.resource://{0}",this.GetType().Namespace),
+                playMusicVids.playVideo(string.Format("android.resource://{0}", this.GetType().Namespace),
                                         idVideoSelecionado,
                                         Resource.Id.videoPlayer);
 
                 //troca o botão do player do video, para ser o stop do video
-                btVideoPlay.SetBackgroundResource(Resource.Drawable.cocofecharvideo);
-                btMusicaPlay.SetBackgroundResource(Resource.Drawable.cocoplay);
+                btVideoPlay.SetBackgroundResource(Resource.Layout.cocofecharvideo);
+                btMusicaPlay.SetBackgroundResource(Resource.Layout.cocoplay);
                 
                 btVideoPlay.Tag = "Fechar";
                 btMusicaPlay.Tag = "Play";
@@ -291,8 +297,8 @@ namespace br.com.idbgames.CCBBAndroid
             {
                 playMusicVids.stopAll();
 
-                btVideoPlay.SetBackgroundResource(Resource.Drawable.cocoplayvideo);
-                btMusicaPlay.SetBackgroundResource(Resource.Drawable.cocoplay);
+                btVideoPlay.SetBackgroundResource(Resource.Layout.cocoplayvideo);
+                btMusicaPlay.SetBackgroundResource(Resource.Layout.cocoplay);
 
                 btVideoPlay.Tag = "Video";
                 btMusicaPlay.Tag = "Play";
@@ -307,17 +313,29 @@ namespace br.com.idbgames.CCBBAndroid
 
             playMusicVids.stopAll();
 
-            btVideoPlay.SetBackgroundResource(Resource.Drawable.cocoplayvideo);
-            btMusicaPlay.SetBackgroundResource(Resource.Drawable.cocoplay);
+            btVideoPlay.SetBackgroundResource(Resource.Layout.cocoplayvideo);
+            btMusicaPlay.SetBackgroundResource(Resource.Layout.cocoplay);
 
             btVideoPlay.Tag = "Video";
             btMusicaPlay.Tag = "Play";
 
             playMusicVids.playMusic("musicas", "boom", "3gp");
 
+            System.Threading.Tasks.Task.Factory.StartNew(() => 
+            {
+                Thread.Sleep(5000);                
+                ImageView boom01 = FindViewById<ImageView>(Resource.Id.boom01);
+                boom01.Visibility = ViewStates.Visible;
+                boom01.StartAnimation(animScaleBoom);
 
-            System.Threading.Tasks.Task.Factory.StartNew(() => {
-                Thread.Sleep(7000);
+                ImageView boom02 = FindViewById<ImageView>(Resource.Id.boom02);
+                boom02.Visibility = ViewStates.Visible;
+                boom02.StartAnimation(animScaleBoom);
+
+                Thread.Sleep(1000);
+                ImageView coqueiro = FindViewById<ImageView>(Resource.Id.coqueiro);
+                coqueiro.StartAnimation(animTremCoqueiro);
+
                 ReposicionaLetras();
             });
         }

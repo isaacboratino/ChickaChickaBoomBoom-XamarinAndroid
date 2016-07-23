@@ -1,8 +1,8 @@
-br.com.idbgames.CCBBAndroid.MainActivity, CCBBAndroid;md56b4af372a7fa6c52d203fdb5fd31ee76.MainActivity
-br.com.idbgames.CCBBAndroid.MainActivity, CCBBAndroid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md56b4af372a7fa6c52d203fdb5fd31ee76.MainActivity
-br.com.idbgames.CCBBAndroid.MainActivity;md56b4af372a7fa6c52d203fdb5fd31ee76.MainActivity
-br.com.idbgames.ccbbandroid.MainActivity;md56b4af372a7fa6c52d203fdb5fd31ee76.MainActivity
-br.com.idbgames.CCBBAndroid.MySpinnerAdapter, CCBBAndroid;md56b4af372a7fa6c52d203fdb5fd31ee76.MySpinnerAdapter
-br.com.idbgames.CCBBAndroid.MySpinnerAdapter, CCBBAndroid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md56b4af372a7fa6c52d203fdb5fd31ee76.MySpinnerAdapter
-br.com.idbgames.CCBBAndroid.MySpinnerAdapter;md56b4af372a7fa6c52d203fdb5fd31ee76.MySpinnerAdapter
-br.com.idbgames.ccbbandroid.MySpinnerAdapter;md56b4af372a7fa6c52d203fdb5fd31ee76.MySpinnerAdapter
+br.com.idbgames.chickachickaboomboomone.MainActivity, CCBBAndroid;md5c7f734918395c1007ac9141d1bc7707b.MainActivity
+br.com.idbgames.chickachickaboomboomone.MainActivity, CCBBAndroid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5c7f734918395c1007ac9141d1bc7707b.MainActivity
+br.com.idbgames.chickachickaboomboomone.MainActivity;md5c7f734918395c1007ac9141d1bc7707b.MainActivity
+br.com.idbgames.chickachickaboomboomone.MainActivity;md5c7f734918395c1007ac9141d1bc7707b.MainActivity
+br.com.idbgames.chickachickaboomboomone.MySpinnerAdapter, CCBBAndroid;md5c7f734918395c1007ac9141d1bc7707b.MySpinnerAdapter
+br.com.idbgames.chickachickaboomboomone.MySpinnerAdapter, CCBBAndroid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5c7f734918395c1007ac9141d1bc7707b.MySpinnerAdapter
+br.com.idbgames.chickachickaboomboomone.MySpinnerAdapter;md5c7f734918395c1007ac9141d1bc7707b.MySpinnerAdapter
+br.com.idbgames.chickachickaboomboomone.MySpinnerAdapter;md5c7f734918395c1007ac9141d1bc7707b.MySpinnerAdapter

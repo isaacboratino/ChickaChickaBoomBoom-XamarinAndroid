@@ -6,8 +6,8 @@ using Android.Widget;
 using System;
 using System.Collections.Generic;
 
-namespace br.com.idbgames.CCBBAndroid
-{
+namespace br.com.idbgames.chickachickaboomboomone
+{ 
     public class PlayMusicVids
     {
         protected SoundPool sound = null;
@@ -113,10 +113,8 @@ namespace br.com.idbgames.CCBBAndroid
 
         public void playVideo(string fullResourceValidName, int videoName, int videoView)
         {
-
             try
             {
-
                 stopAll();
 
                 //	Displays a video file.        
@@ -130,11 +128,11 @@ namespace br.com.idbgames.CCBBAndroid
                 mVideoView.SetVideoURI(uri);
                 mVideoView.BringToFront();
 
-                MediaController mc = new MediaController(activityContext);
-                mc.SetAnchorView(mVideoView);
-                mc.SetMediaPlayer(mVideoView);
+                MediaController mediaController = new MediaController(activityContext);
+                mediaController.SetAnchorView(mVideoView);
+                mediaController.SetMediaPlayer(mVideoView);
 
-                mVideoView.SetMediaController(mc);
+                mVideoView.SetMediaController(mediaController);
                 mVideoView.Visibility = Android.Views.ViewStates.Visible;
                 mVideoView.Start();
 

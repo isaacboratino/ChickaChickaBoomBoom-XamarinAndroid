@@ -3,11 +3,11 @@ using Android.Views;
 using Android.Widget;
 using CCBBAndroid;
 
-namespace br.com.idbgames.CCBBAndroid
+namespace br.com.idbgames.chickachickaboomboomone
 {
     public class MySpinnerAdapter : BaseAdapter<int>
     {
-        int[] items;
+        int[] items; 
         Activity context;
 
         public MySpinnerAdapter(Activity context, int[] items)
