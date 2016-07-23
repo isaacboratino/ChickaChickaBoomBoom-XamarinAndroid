@@ -49,7 +49,7 @@
         android:layout_alignTop="@id/coqueiro"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        tools:visibility="gone" />
+        android:alpha="0.5" />
     <ImageView
         android:id="@+id/boom02"
         android:layout_height="80dp"
@@ -58,7 +58,7 @@
         android:layout_alignBottom="@id/coqueiro"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="80dp"
-        tools:visibility="gone" />
+        android:alpha="0.5" />
     <Button
         android:id="@+id/chickaChickaButton"
         android:layout_width="60dp"

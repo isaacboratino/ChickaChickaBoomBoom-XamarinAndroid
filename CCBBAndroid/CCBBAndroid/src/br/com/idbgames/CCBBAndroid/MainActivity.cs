@@ -139,7 +139,10 @@ namespace br.com.idbgames.chickachickaboomboomone
             playVideoButton.Click += btPlayVideo_onClick;
 
             Button chickaChickaButton = FindViewById<Button>(Resource.Id.chickaChickaButton);
-            chickaChickaButton.Click += chickaBoomButton_onClick;            
+            chickaChickaButton.Click += chickaBoomButton_onClick;
+
+            //FindViewById<ImageView>(Resource.Id.boom01).Visibility = ViewStates.Gone;
+            //FindViewById<ImageView>(Resource.Id.boom02).Visibility = ViewStates.Gone;
         }
 
         private void GenerateLettersTouch(RelativeLayout rl, int[] lettersImgArr)
@@ -321,21 +324,18 @@ namespace br.com.idbgames.chickachickaboomboomone
 
             playMusicVids.playMusic("musicas", "boom", "3gp");
 
+            ImageView boom01 = FindViewById<ImageView>(Resource.Id.boom01);
+            boom01.StartAnimation(animScaleBoom);
+
+            ImageView boom02 = FindViewById<ImageView>(Resource.Id.boom02);
+            boom02.StartAnimation(animScaleBoom);
+
+            ImageView coqueiro = FindViewById<ImageView>(Resource.Id.coqueiro);
+            coqueiro.StartAnimation(animTremCoqueiro);
+
             System.Threading.Tasks.Task.Factory.StartNew(() => 
             {
-                Thread.Sleep(5000);                
-                ImageView boom01 = FindViewById<ImageView>(Resource.Id.boom01);
-                boom01.Visibility = ViewStates.Visible;
-                boom01.StartAnimation(animScaleBoom);
-
-                ImageView boom02 = FindViewById<ImageView>(Resource.Id.boom02);
-                boom02.Visibility = ViewStates.Visible;
-                boom02.StartAnimation(animScaleBoom);
-
-                Thread.Sleep(1000);
-                ImageView coqueiro = FindViewById<ImageView>(Resource.Id.coqueiro);
-                coqueiro.StartAnimation(animTremCoqueiro);
-
+                Thread.Sleep(6000);
                 ReposicionaLetras();
             });
         }
