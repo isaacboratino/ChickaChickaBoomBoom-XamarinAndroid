@@ -35,7 +35,8 @@ namespace br.com.idbgames.chickachickaboomboomone
 
         protected PlayMusicVids playMusicVids;
 
-        protected Animation animScaleBoom;
+        protected Animation animScaleBoom01;
+        protected Animation animScaleBoom02;
         protected Animation animTremCoqueiro;
 
         protected override void OnCreate(Bundle bundle)
@@ -49,7 +50,8 @@ namespace br.com.idbgames.chickachickaboomboomone
 
             layoutPrincipal = FindViewById<RelativeLayout>(Resource.Id.layoutPrincipal);
 
-            animScaleBoom = AnimationUtils.LoadAnimation(this, Resource.Layout.anim_scale_boom);
+            animScaleBoom01 = AnimationUtils.LoadAnimation(this, Resource.Layout.anim_scale_boom);
+            animScaleBoom02 = AnimationUtils.LoadAnimation(this, Resource.Layout.anim_scale_boom);
             animTremCoqueiro = AnimationUtils.LoadAnimation(this, Resource.Layout.anim_treme_coqueiro);
 
             // Fiz isso para pegar o tamanho real da tela
@@ -141,8 +143,8 @@ namespace br.com.idbgames.chickachickaboomboomone
             Button chickaChickaButton = FindViewById<Button>(Resource.Id.chickaChickaButton);
             chickaChickaButton.Click += chickaBoomButton_onClick;
 
-            //FindViewById<ImageView>(Resource.Id.boom01).Visibility = ViewStates.Gone;
-            //FindViewById<ImageView>(Resource.Id.boom02).Visibility = ViewStates.Gone;
+            FindViewById<ImageView>(Resource.Id.boom01).Alpha = 0.0f;
+            FindViewById<ImageView>(Resource.Id.boom02).Alpha = 0.0f;
         }
 
         private void GenerateLettersTouch(RelativeLayout rl, int[] lettersImgArr)
@@ -325,10 +327,16 @@ namespace br.com.idbgames.chickachickaboomboomone
             playMusicVids.playMusic("musicas", "boom", "3gp");
 
             ImageView boom01 = FindViewById<ImageView>(Resource.Id.boom01);
-            boom01.StartAnimation(animScaleBoom);
+            animScaleBoom01.StartOffset = 3500;
+            boom01.StartAnimation(animScaleBoom01);
+            boom01.BringToFront();
+            boom01.Animate().Alpha(1.0f).SetStartDelay(3400).SetDuration(100);            
 
             ImageView boom02 = FindViewById<ImageView>(Resource.Id.boom02);
-            boom02.StartAnimation(animScaleBoom);
+            animScaleBoom02.StartOffset = 4500;
+            boom02.BringToFront();
+            boom02.StartAnimation(animScaleBoom02);
+            boom02.Animate().Alpha(1.0f).SetStartDelay(4400).SetDuration(100);            
 
             ImageView coqueiro = FindViewById<ImageView>(Resource.Id.coqueiro);
             coqueiro.StartAnimation(animTremCoqueiro);
@@ -337,9 +345,11 @@ namespace br.com.idbgames.chickachickaboomboomone
             {
                 Thread.Sleep(6000);
                 ReposicionaLetras();
+
+                boom01.Animate().Alpha(0.0f).SetStartDelay(1000).SetDuration(100);
+                boom02.Animate().Alpha(0.0f).SetStartDelay(1000).SetDuration(100);
             });
         }
-
 
         protected void ReposicionaLetras()
         {

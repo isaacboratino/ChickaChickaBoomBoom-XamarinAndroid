@@ -48,8 +48,7 @@
         android:layout_width="100dp"
         android:layout_alignTop="@id/coqueiro"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:alpha="0.5" />
+        android:layout_marginTop="50dp" />
     <ImageView
         android:id="@+id/boom02"
         android:layout_height="80dp"
@@ -57,8 +56,7 @@
         android:layout_width="100dp"
         android:layout_alignBottom="@id/coqueiro"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="80dp"
-        android:alpha="0.5" />
+        android:layout_marginBottom="80dp" />
     <Button
         android:id="@+id/chickaChickaButton"
         android:layout_width="60dp"
